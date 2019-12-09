@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+	<title>moire pattern</title>
+
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" type="text/javascript"></script>    
+  	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>  
+
+  	<link href="https://fonts.googleapis.com/css?family=Cinzel:400,700&display=swap" rel="stylesheet">
+
+
+
+	<style>
+
+		body{margin:0;background: black;}
+		h2{font-family: 'Cinzel', serif; font-weight: 400; margin: 0px; margin-left: 10px;}
+		a{font-weight: 500;  width:50px; height: 30px; color: gray; margin-left: 10px;text-decoration: none;}
+
+		#head1{width: 100%; height: 50px;  background-color: white; z-index: 9998;}
+
+		#container{width:700px; height:700px; position: absolute; left: 250px; top:100px; animation: ro 10s linear infinite; background-image:url(in2.png); background-size: cover;}
+		#container2{width:700px; height:700px; position: absolute; left: 250px; top:100px; background-image:url(in2.png); background-size: cover;   transform:rotate(0deg);
+  -ms-transform:rotate(0deg);
+  -webkit-transform:rotate(0deg);}
+
+		.sq{width:20px; height:20px; margin:5px;background: white;float:left;position: absolute;}
+		.sq2{position: absolute;  }
+
+		.control{position: absolute; z-index: 9999; top: 100px; left: 10px;}
+
+		#con2{top:100px; background-color: white; color: black;}
+
+
+		.control {
+		  -webkit-appearance: none;
+		  width: 20%;
+		  height: 25px;
+		  background: #d3d3d3;;
+		  outline: none;
+		  opacity: 0.7;
+		  -webkit-transition: .2s;
+		  transition: opacity .2s;
+		}
+
+		.control:hover {
+		  opacity: 1;
+		}
+
+		.control::-webkit-slider-thumb {
+		  -webkit-appearance: none;
+		  appearance: none;
+		  width: 25px;
+		  height: 25px;
+		  background: gray;
+		  cursor: pointer;
+		}
+
+		.control::-moz-range-thumb {
+		  width: 25px;
+		  height: 25px;
+		  background: #4CAF50;
+		  cursor: pointer;
+		}
+
+
+
+	
+	</style>
+</head>
+<body>
+	<div id="head1">
+		<div>
+			<h2>PLAY OP-ART</h2>
+		</div>
+
+			<a href="index.html">1</a>
+			<a href="../html/inner2.html">2</a>
+			<a href="../html/inner3.html">3</a>
+			
+	</div>
+
+
+
+	<div id="container" class="item"></div>
+	<div id="container2" class="item"></div>
+	<input type = "range" id="con2" class="control" min="-30" max="30"oninput="rotate(this.value)" onchange="rotate(this.value)">
+	<!-- <input type = "range" id="con2" class="control" min="0" max="50"> -->
+	<script>
+
+		// var x = 0;
+		// var y = 0;
+
+		// function moveLeft() {
+		// 	x -= 20;
+		// 	var obj = document.getElementById('sq2');
+		// 	obj.style.left = x + 'px';   // px는 스타일시트 단
+		// }
+
+		// function moveRight() {
+		// 	x += 20;
+		// 	var obj = document.getElementById('sq2');
+		// 	obj.style.left = x + 'px';   // px는 스타일시트 단
+		// }
+
+		// function main() {
+		// var obj_u = document.getElementById('btn_up');
+		// var obj_l = document.getElementById('btn_left');
+		// var obj_r = document.getElementById('btn_right');
+		// var obj_d = document.getElementById('btn_down');
+		// obj_u.addEventListener('click', moveUp, false);
+		// obj_l.addEventListener('click', moveLeft, false);
+		// obj_r.addEventListener('click', moveRight, false);
+		// obj_d.addEventListener('click', moveDown, false);
+		// }
+
+		// for(var i=0; i<25; i++){
+		// 	for(var j=0;j<25;j++){
+		// 		var t = document.createElement("div");
+		// 			t.className = "sq";
+		// 			t.style.top = 35*i + "px";
+		// 			t.style.left = 35*j + "px";
+		// 			container.appendChild(t);
+		// 	}
+		// }
+
+
+
+		// for(var i=0; i<360; i++){
+			
+		// 		var t = document.getElementById("container2")
+		// 			t.className = "sq2";
+					
+					
+					
+					
+			
+		// 	}
+		
+		// con1.oninput = function(){
+		// 	console.log(con1.value);
+		// 	var t = document.getElementsByClassName("sq");
+		// 	for(var i=0;i<t.length;i++){
+		// 		t[i].style.width = con1.value + "px";
+		// 		t[i].style.height = con1.value + "px";
+		// 	}
+		// }
+
+		// con2.oninput = function(){
+		// 	console.log(con1.value);
+		// 	var t = document.getElementsByClassName("sq");
+		// 	for(var i=0;i<t.length;i++){
+		// 		t[i].style.borderRadius = con2.value + "%";
+		// 	}
+		// }
+
+		// 	con2.oninput = function(){
+		// 	console.log(t);
+		// 	var t = document.getElementsByClassName("sq2");
+		// 	for(var i=0; i<t.length; i++){
+		// 		t[i].style.transform = "rotate(10*i+deg)";
+		// 	}
+		// }
+
+		function rotate(value) {
+		  document.getElementById('container2').style.webkitTransform="rotate(" + value + "deg)";
+		  document.getElementById('container2').style.msTransform="rotate("  + "deg)";
+		  document.getElementById('container2').style.MozTransform="rotate(" + "deg)";
+		  document.getElementById('container2').style.OTransform="rotate("  + "deg)";
+		  document.getElementById('container2').style.transform="rotate(" + "deg)";
+		  
+		}
+			</script>
+</body>
+<footer style="color: gray; position: absolute; bottom: 10px; margin-left: 10px;">ⓒ 2019 HKNU.YOHAN LIM</footer>
+</html>
